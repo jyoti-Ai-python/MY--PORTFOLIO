@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brew & Bites Cafe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f1ea;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #8b4513;
+            color: white;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            margin: 0 1rem;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #f4f1ea;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 3px 0;
+        }
+        section {
+            padding: 4rem 2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #home {
+            background-image: url('https://via.placeholder.com/1920x1080/8b4513/ffffff?text=Cafe+Interior'); /* Replace with real image */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+        #home h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        #menu {
+            background-color: #fff;
+        }
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            width: 100%;
+        }
+        .menu-item {
+            background-color: #f4f1ea;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        #about {
+            background-color: #e8d5b7;
+        }
+        #gallery {
+            background-color: #fff;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            max-width: 1200px;
+            width: 100%;
+        }
+        .gallery-grid img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        #contact {
+            background-color: #8b4513;
+            color: white;
+        }
+        form {
+            max-width: 600px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        form input, form textarea {
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            border: none;
+            border-radius: 4px;
+        }
+        form button {
+            background-color: #f4f1ea;
+            color: #333;
+            padding: 0.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 700;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #333;
+            color: white;
+        }
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #8b4513;
+            }
+            nav ul.show {
+                display: flex;
+            }
+            .hamburger {
+                display: flex;
+            }
+            #home h1 {
+                font-size: 2rem;
+            }
+            section {
+                padding: 2rem 1rem;
+            }
+            .menu-grid, .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="hamburger" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <ul id="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h1>Welcome to Brew & Bites</h1>
+        <p>Your cozy spot for the perfect brew and bite. Relax, sip, and savor.</p>
+    </section>
+
+    <section id="menu">
+        <h2>Our Menu</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <h3>Espresso</h3>
+                <p>Rich and bold. $3.50</p>
+            </div>
+            <div class="menu-item">
+                <h3>Cappuccino</h3>
+                <p>Creamy and frothy. $4.00</p>
+            </div>
+            <div class="menu-item">
+                <h3>Avocado Toast</h3>
+                <p>Fresh and healthy. $7.00</p>
+            </div>
+            <div class="menu-item">
+                <h3>Blueberry Muffin</h3>
+                <p>Fluffy and sweet. $3.00</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Brew & Bites was founded in 2010 with a passion for great coffee and fresh bites. Our team of baristas and chefs craft every item with love. Come join our community!</p>
+        <p><strong>Meet the Team:</strong> Jane (Owner), Mike (Head Barista), Sarah (Chef).</p>
+    </section>
+
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery-grid">
+            <img src="https://via.placeholder.com/300x200/8b4513/ffffff?text=Cafe+View" alt="Cafe Interior">
+            <img src="https://via.placeholder.com/300x200/8b4513/ffffff?text=Coffee+Cups" alt="Coffee Cups">
+            <img src="https://via.placeholder.com/300x200/8b4513/ffffff?text=Food+Platter" alt="Food Platter">
+            <img src="https://via.placeholder.com/300x200/8b4513/ffffff?text=Outdoor+Seating" alt="Outdoor Seating">
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Address: 123 Brew St, Coffee City, CA 90210</p>
+        <p>Phone: (555) 123-4567 | Email: info@brewbites.com</p>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Brew & Bites Cafe. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('nav-menu');
+            menu.classList.toggle('show');
+        }
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
